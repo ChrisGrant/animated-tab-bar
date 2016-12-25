@@ -75,8 +75,8 @@ open class RAMAnimatedTabBarItem: UITabBarItem {
   /// The tint color of the UITabBarItem icon.
   @IBInspectable open var iconColor: UIColor = UIColor.clear // if alpha color is 0 color ignoring
   
-  var bgDefaultColor: UIColor = UIColor.clear // background color
-  var bgSelectedColor: UIColor = UIColor.clear
+  open var bgDefaultColor: UIColor = UIColor.clear // background color
+  open var bgSelectedColor: UIColor = UIColor.clear
   
   //  The current badge value
   open var badge: RAMBadge? // use badgeValue to show badge
@@ -189,8 +189,8 @@ extension  RAMAnimatedTabBarController {
 /// UITabBarController with item animations
 open class RAMAnimatedTabBarController: UITabBarController {
   
-  fileprivate var didInit: Bool = false
-  fileprivate var didLoadView: Bool = false
+  open var didInit: Bool = false
+  open var didLoadView: Bool = false
   
   // MARK: life circle
   
@@ -253,7 +253,7 @@ open class RAMAnimatedTabBarController: UITabBarController {
     self.initializeContainers()
   }
   
-  fileprivate func initializeContainers() {
+  open func initializeContainers() {
     if !self.didInit || !self.didLoadView {
       return
     }
@@ -264,7 +264,7 @@ open class RAMAnimatedTabBarController: UITabBarController {
   }
   
   // MARK: create methods
-  func createCustomIcons(_ containers : NSDictionary) {
+  open func createCustomIcons(_ containers : NSDictionary) {
  
     guard let items = tabBar.items as? [RAMAnimatedTabBarItem] else {
       fatalError("items must inherit RAMAnimatedTabBarItem")
@@ -325,7 +325,7 @@ open class RAMAnimatedTabBarController: UITabBarController {
     }
   }
   
-  func createConstraints(_ view:UIView, container:UIView, size:CGSize, yOffset:CGFloat) {
+  open func createConstraints(_ view:UIView, container:UIView, size:CGSize, yOffset:CGFloat) {
     
     let constX = NSLayoutConstraint(item: view,
                                     attribute: NSLayoutAttribute.centerX,
@@ -364,7 +364,7 @@ open class RAMAnimatedTabBarController: UITabBarController {
     view.addConstraint(constH)
   }
   
-  func createViewContainers() -> NSDictionary {
+  open func createViewContainers() -> NSDictionary {
     
     guard let items = tabBar.items else {
       fatalError("add items in tabBar")
@@ -391,7 +391,7 @@ open class RAMAnimatedTabBarController: UITabBarController {
     return containersDict as NSDictionary
   }
   
-  func createViewContainer() -> UIView {
+  open func createViewContainer() -> UIView {
     let viewContainer = UIView();
     viewContainer.backgroundColor = UIColor.clear // for test
     viewContainer.translatesAutoresizingMaskIntoConstraints = false
