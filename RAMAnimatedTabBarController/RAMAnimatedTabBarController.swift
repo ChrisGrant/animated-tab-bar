@@ -264,9 +264,8 @@ open class RAMAnimatedTabBarController: UITabBarController {
   }
   
   // MARK: create methods
-  
-  fileprivate func createCustomIcons(_ containers : NSDictionary) {
-    
+  func createCustomIcons(_ containers : NSDictionary) {
+ 
     guard let items = tabBar.items as? [RAMAnimatedTabBarItem] else {
       fatalError("items must inherit RAMAnimatedTabBarItem")
     }
@@ -326,7 +325,7 @@ open class RAMAnimatedTabBarController: UITabBarController {
     }
   }
   
-  fileprivate func createConstraints(_ view:UIView, container:UIView, size:CGSize, yOffset:CGFloat) {
+  func createConstraints(_ view:UIView, container:UIView, size:CGSize, yOffset:CGFloat) {
     
     let constX = NSLayoutConstraint(item: view,
                                     attribute: NSLayoutAttribute.centerX,
@@ -365,7 +364,7 @@ open class RAMAnimatedTabBarController: UITabBarController {
     view.addConstraint(constH)
   }
   
-  fileprivate func createViewContainers() -> NSDictionary {
+  func createViewContainers() -> NSDictionary {
     
     guard let items = tabBar.items else {
       fatalError("add items in tabBar")
@@ -392,7 +391,7 @@ open class RAMAnimatedTabBarController: UITabBarController {
     return containersDict as NSDictionary
   }
   
-  fileprivate func createViewContainer() -> UIView {
+  func createViewContainer() -> UIView {
     let viewContainer = UIView();
     viewContainer.backgroundColor = UIColor.clear // for test
     viewContainer.translatesAutoresizingMaskIntoConstraints = false
